@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private FloatingJoystick floatingJoystick;
 
     public float moveSpeed = 20f;
+    public float joystickThreshold = 0.4f;
         
     // Awake is called the first
     void Awake()
@@ -22,17 +23,38 @@ public class PlayerMovement : MonoBehaviour
         rigidbody = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
+    // FixedUpdate is called once per frame
     void FixedUpdate()
     {
-        Run();
+        float h = floatingJoystick.Horizontal;
+        float v = floatingJoystick.Vertical;
+        Movement(h, v);
+        
     }
 
-    void Run()
+    void Movement(float h, float v)
     {
-        rigidbody.velocity = new Vector3(-floatingJoystick.Horizontal * moveSpeed, rigidbody.velocity.y, -floatingJoystick.Vertical * moveSpeed);
-        //transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(floatingJoystick.Direction), 15.0f * Time.deltaTime);
-
+        // begin - Player Rotation
+        Vector3 targetDirection = new Vector3(-h, 0f, -v);
+        Quaternion targetRotation = Quaternion.LookRotation(targetDirection, Vector3.up);
+        Quaternion newRotation = Quaternion.Lerp(rigidbody.rotation, targetRotation,15f * Time.deltaTime);
+        rigidbody.MoveRotation(newRotation);
+        // end - Player Rotation
+        
+        // begin - Animate slowly idle to run
+        if (floatingJoystick.Horizontal >= joystickThreshold || floatingJoystick.Vertical >= joystickThreshold || floatingJoystick.Horizontal <= -joystickThreshold || floatingJoystick.Vertical <= -joystickThreshold)
+        {
+            animator.SetBool("Run",true);
+        }
+        else
+        {
+            animator.SetBool("Run", false);
+        }
+        // end - Animate slowly idle to run
+        
+        // begin - Player velocity
+        rigidbody.velocity = new Vector3(-h * moveSpeed, rigidbody.velocity.y, -v * moveSpeed);
+        // end - Player Velocity
     }
-    
+
 } // end-class

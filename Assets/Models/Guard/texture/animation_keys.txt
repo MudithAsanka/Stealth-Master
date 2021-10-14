@@ -1,0 +1,72 @@
+
+Full pack can be bought here:	https://www.cgtrader.com/kama120893
+
+	----Weapon animation keys----
+		by Deslab.kz
+
+
+AK-47
+0- 25 magazine
+25-40 gate
+45 - 70 shot
+
+AR15
+0- 25 magazine
+25-40 gate
+45 - 70 shot
+
+AUG
+0- 25 magazine
+25-40 gate
+45 - 70 shot
+
+Crossbow
+0-35 shot
+
+FAMAS
+0- 25 magazine
+25-40 gate
+45 - 70 shot
+
+Glock
+0- 25 magazine
+25-40 gate
+45 - 70 shot
+
+Grenade Launcher
+0-25 opening of the drum 
+30- 56 close the drum
+60 - 75 shot
+
+m16
+0- 25 magazine
+25-40 gate
+45 - 70 shot
+
+Revolver
+0-50 opening of the drum 
+50- 90 close the drum
+95 - 115 shot
+
+Sawed-off Shotgun
+0- 65  recharge 
+65 - 80 shot
+
+Shotgun
+0 - 30 butt
+30- 70 shot
+
+SVD
+0- 25 magazine
+25-40 gate
+45 - 70 shot
+
+Tech 9
+0- 25 magazine
+25-40 gate
+45 - 70 shot
+
+UZI
+0- 25 magazine
+25-40 gate
+45 - 70 shot
